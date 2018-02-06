@@ -1,15 +1,9 @@
 ---
 layout: page
-title: About
+title: A propos de ce blog
 permalink: /about/
 ---
 
-Some information about you!
+Ce blog est un complément au cours [LSINF1252](https://sites.uclouvain.be/SystInfo/) donné aux étudiants en informatique à l'[https://www.uclouvain.be](UCLouvain)
 
-### More Information
-
-A place to include any other types of information that you'd like to include about yourself.
-
-### Contact me
-
-[email@domain.com](mailto:email@domain.com)
+Il comprend essentiellement des informations qui sont fournies pas les étudiants qui suivent le cours.
