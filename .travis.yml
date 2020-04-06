@@ -8,4 +8,4 @@ install:
  - sudo apt-get install hunspell hunspell-fr
 language: ruby
 # command to run tests
-script: travis.sh
+script: ./travis.sh
