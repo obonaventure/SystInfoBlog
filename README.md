@@ -14,3 +14,11 @@ Les étudiants sont encouragés à proposer des articles sur ce blog. Les étudi
 dont les articles seront publiés recevront un bonus dans l'évaluation du
 cours.
 
+Pour proposer un article pour le blog, nous vous invitons à réfléchir aux
+problèmes pratiques qui vous ont fait perdre du temps dans le cadre du projet
+et que vous avez résolu avec l'aide d'un des membres du groupe ou d'un
+tuteur. Décrivez brièvement ce problème en expliquant sa solution
+sous la forme d'un
+[nouvelle issue](https://github.com/UCL-INGI/LEPL1503-Blog/issues/new).
+Cela lancera une discussion sur github et nous verrons comment transformer
+ce problème résolu en un article qui sera utile aux autres étudiants.
