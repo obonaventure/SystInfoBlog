@@ -1,7 +1,6 @@
 install:
  - sudo apt-get install rubygems
  - sudo apt-get install jekyll
- - sudo gem install mdl
  - sudo gem install jekyll-sitemap
  - sudo apt-get install nodejs npm
  - sudo apt install nodejs-legacy
