@@ -1,5 +1,5 @@
 #!/bin/bash
-mdspell -V 
+mdspell --version
 find /usr -name "fr.dic"
-mdspell -n -a -r -d /usr/share/hunspell/fr _posts/*
+mdspell --ignore-numbers --ignore-acronyms --report --no-suggestions --dictionary /usr/share/hunspell/fr _posts/*
 jekyll build .
