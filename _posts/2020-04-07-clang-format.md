@@ -6,7 +6,7 @@ author: Olivier Bonaventure
 
 Lorsque plusieurs étudiants collaborent à l'écriture d'un programme
 en C, ils utilisent souvent des conventions différentes pour
-placer les place accolades, documenter les fonctions, un nombre
+placer les accolades, documenter les fonctions, un nombre
 variable d'espaces pour les tabulations, ... La lecture du code
 source peut parfois même devenir difficile si les étudiants n'utilisent
 aucune convention.
@@ -23,7 +23,7 @@ code source de façon à ce que celui-ci respecte une convention donnée.
 [clang-format](https://clang.llvm.org/docs/ClangFormat.html) est un
 de ces logiciels qui est bien adapté au code source en C.
 
-Il s'installe facilement sur Linux et s'utilise facilement en ligne
+Il s'installe facilement sur Linux et s'utilise en ligne
 de commande. A titre d'exemple, prenons le code source suivant:
 
 ```c
