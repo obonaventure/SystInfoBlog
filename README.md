@@ -4,8 +4,9 @@ Blog du projet P3, LEPL1503
 [![Build Status](https://travis-ci.org/ucl-ingi/LEPL1503-Blog.svg?branch=master)](https://travis-ci.org/ucl-ingi/LEPL1503-Blog)
 
 
-Ce [blog](https://ucl-ingi.github.io/LEPL1503-Blog] comprend des informations utiles aux étudiants qui réalisent
-le projet du cours [LEPL1503](https://uclouvain.be/cours-2019-lepl1503).
+Ce [blog](https://ucl-ingi.github.io/LEPL1503-Blog) comprend des informations utiles aux étudiants qui réalisent
+le projet du cours [LEPL1503](https://uclouvain.be/cours-2019-lepl1503) à
+l'[UCLouvain](https://www.uclouvain.be).
 
 Ce blog est écrit en [Markdown](https://aksakalli.github.io/jekyll-doc-theme/docs/cheatsheet/) et est mis en ligne grâce à au logiciel
 [Jekyll](https://jekyllrb.com) de [GitHub](https://github.com).
