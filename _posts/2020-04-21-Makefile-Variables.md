@@ -53,13 +53,13 @@ Pour un exemple pareil on pourrait bien taper chaque commande à chaque fois que
 Mais on peut y arriver en mettant les commandes dans le Makefile de cette manière :
 ```makefile
 main: addition.o multiplication.o
-	gcc -o main addition.o multiplication.o
+    gcc -o main addition.o multiplication.o
 
 addition.o: addition.c addition.h
-	gcc -c addition.c
+    gcc -c addition.c
 
 multiplication.o: multiplication.c multiplication.h
-	gcc -c multiplication.c
+    gcc -c multiplication.c
 ```
 Le fait d'écrire les ***règles*** de compilation de cette manière nous permet d'uniquement passer la commande `make` qui effectuera les trois opérations.
 
@@ -78,13 +78,13 @@ CC = gcc
 CFlags = -g -Wall -Werror
 
 main: addition.o multiplication.o
-	$(CC) $(CFlags) -o main addition.o multiplication.o
+    $(CC) $(CFlags) -o main addition.o multiplication.o
 
 addition.o: addition.c addition.h
-	$(CC) $(CFlags) -c addition.c
+    $(CC) $(CFlags) -c addition.c
 
 multiplication.o: multiplication.c multiplication.h
-	$(CC) $(CFlags) -c multiplication.c
+    $(CC) $(CFlags) -c multiplication.c
 ```
 
 Pour plus d'informations en ce qui concerne les flags que l'on peut passer au compilateur [GCC](http://man7.org/linux/man-pages/man1/gcc.1.html) je vous redirige vers un autre post: [Quelques flags utiles pour la compilation]({{ site.baseurl }}/gcc-flags/)
@@ -103,13 +103,13 @@ Un exemple s'impose:
 # ...
 
 main: addition.o multiplication.o
-	$(CC) $(CFlags) -o $@ $^
+    $(CC) $(CFlags) -o $@ $^
 
 addition.o: addition.c addition.h
-	$(CC) $(CFlags) -c $<
+    $(CC) $(CFlags) -c $<
 
 multiplication.o: multiplication.c multiplication.h
-	$(CC) $(CFlags) -c $<
+    $(CC) $(CFlags) -c $<
 ```
 On peut d'autant plus voir les similitudes entres les lignes. Il y a sûrement une meilleure méthode pour écrire tout ça, non?
 
@@ -120,10 +120,10 @@ Avec le signe **%** . On ne doit plus réécrire les noms, et en une ligne on pe
 # ...
 
 main: addition.o multiplication.o
-	$(CC) $(CFlags) -o $@ $^
+    $(CC) $(CFlags) -o $@ $^
 
 %.o: %.c %.h
-	$(CC) $(CFlags) -c $<
+    $(CC) $(CFlags) -c $<
 ```
 # Des commandes supplémentaires?
 
@@ -134,9 +134,9 @@ On va commencer par ma commande préférée.
 On peut donc rajouter à la fin du fichier :
 ```makefile
 clean:
-	rm -f main *.o # Le flag -f sert à ne pas faire échouer la commande `rm` dans le cas où il n'y a pas de fichier `main`
-	rm -f *.xml  # Utile pour les fichiers générés par valgrind et cppcheck
-	# rm ...
+    rm -f main *.o # Le flag -f sert à ne pas faire échouer la commande `rm` dans le cas où il n'y a pas de fichier `main`
+    rm -f *.xml  # Utile pour les fichiers générés par valgrind et cppcheck
+    # rm ...
 ```
 
 Vous l'avez donc deviné, on peut donc créer toute sorte de séquences de commandes exécutables en tapant `make <tartget-name>`
@@ -162,9 +162,9 @@ CUnit = -lcunit
 # ...
 
 test: UnitTest.o addition.o multiplication.o
-	$(CC) -o test $^ $(CUnit)
-	./test
-	make clean
+    $(CC) -o test $^ $(CUnit)
+    ./test
+    make clean
 ```
 On se rappelle que tous les fichiers *.o sont pris en charge par la commande vue plus haut. Donc pas besoin de rajouter une règle pour générer le fichier UnitTest.o supplémentaire.
 
@@ -177,21 +177,21 @@ Pour récapituler, la commande **`make test`** compile le fichier test, puis l'e
 Comme pour **`make clean`** et **`make test`** , on peut créer une commande **`make allChecks`**  qui se chargera d'effectuer tous les checks nécessaires, Valgrind et CppCheck:
 ```makefile
 allChecks:
-	make main
-	make CppCheckMake
-	make ValgrindMake
+    make main
+    make CppCheckMake
+    make ValgrindMake
 ```
 
 Vous l'avez deviné, on a aussi besoin de commandes pour effectuer CppCheck et Valgrind.
 * CppCheckMake
 ```makefile
 CppCheckMake: *.c *.h
-	cppcheck --enable=all --inconclusive $^ 2> cppcheck.json
+    cppcheck --enable=all --inconclusive $^ 2> cppcheck.json
 ```
 * ValgrindMake
 ```makefile
 ValgrindMake: main.c
-	valgrind --xml=yes --xml-file="valgrind.xml" --leak-check=yes --track-origins=yes ./main
+    valgrind --xml=yes --xml-file="valgrind.xml" --leak-check=yes --track-origins=yes ./main
 ```
 
 # Conclusion
@@ -205,38 +205,39 @@ CUnit = -lcunit
 
 # Main
 main: addition.o multiplication.o
-	$(CC) $(CFlags) -o $@ $^
+    $(CC) $(CFlags) -o $@ $^
 
 %.o: %.c %.h
-	$(CC) $(CFlags) -c $<
+    $(CC) $(CFlags) -c $<
 
 # Tests
 test: UnitTest.o addition.o multiplication.o
-	$(CC) -o test $^ $(CUnit)
-	./test
-	make clean
+    $(CC) -o test $^ $(CUnit)
+    ./test
+    make clean
 
 # Checks
 CppCheckMake: *.c *.h
-	cppcheck --enable=all --inconclusive $^ 2> cppcheck.json
+    cppcheck --enable=all --inconclusive $^ 2> cppcheck.json
 
 ValgrindMake: main.c
-	valgrind --xml=yes --xml-file="valgrind.xml" --leak-check=yes --track-origins=yes ./main
+    valgrind --xml=yes --xml-file="valgrind.xml" --leak-check=yes --track-origins=yes ./main
 
 allChecks:
-	make main
-	make CppCheckMake
-	make ValgrindMake
+    make main
+    make CppCheckMake
+    make ValgrindMake
 
 # Cleaning
 clean:
-	rm main *.o
-	rm -f *.xml  # Utile pour les fichiers générés par valgrind et cppcheck
-	# rm ...
+    rm main *.o
+    rm -f *.xml  # Utile pour les fichiers générés par valgrind et cppcheck
+    # rm ...
 
 ```
 
-Vous pouvez télécharger tous les fichiers créés dans cet article [ici](https://github.com/KafrouniChris/kafrounichris.github.io/tree/master/_posts/Makefile-Material).
+Vous pouvez télécharger tous les fichiers créés dans cet article  [ici]({{site.github.url}}/images/makefile_post).
 
 
 Merci pour votre lecture !
+
