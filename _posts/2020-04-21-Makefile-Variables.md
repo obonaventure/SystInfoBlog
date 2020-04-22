@@ -236,8 +236,6 @@ clean:
 
 ```
 
-Vous pouvez télécharger tous les fichiers créés dans cet article  [ici]({{site.github.url}}/images/makefile_post).
-
+Vous pouvez télécharger tous les fichiers créés dans cet article  [ici]({{site.github.repository_url}}/tree/master/images/makefile_post).
 
 Merci pour votre lecture !
-
