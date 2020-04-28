@@ -5,7 +5,7 @@ author: Bastien Wiaux
 ---
 Vous avez enfin fini d'implémenter votre algorithme et tout fonctionne à merveille lorsque vous décidez de passer à l'étape suivante: passer votre algorithme en multithread !
 
-Seulement un problème se pose, votre fonction prend trois arguments et la foncion `pthread_create` refuse de la prendre ! En cherchant un peu, on peut se rendre compte que c'est normal, car la fonction `pthread_create` est défini ainsi dans sa _manpage_ :
+Seulement un problème se pose, votre fonction prend trois arguments et la foncion `pthread_create` refuse de la prendre ! En cherchant un peu, on peut se rendre compte que c'est normal, car la fonction `pthread_create` est définie ainsi dans sa _manpage_ :
 
 ```
 #include <pthread.h>
@@ -15,10 +15,10 @@ int pthread_create(pthread_t *thread, const pthread_attr_t *attr,
 ```
 Si on regarde le troisième argument, qui correspond à la fonction que le thread fera tourner, on peut lire `void *(*start_routine) (void *)`. Cette expression se décortique en trois parties:
 - `void *`: cela signifie que votre fonction doit retourner un pointeur _void_
-- `(*start_routine)`: c'est ce que vous allez réellement écrire en argument, celà représente simplement un pointeur vers votre fonction.
+- `(*start_routine)`: c'est ce que vous allez réellement écrire en argument, cela représente simplement un pointeur vers votre fonction.
 - `(void *)`: cela indique que votre fonction doit prendre en argument un pointeur _void_ 
 
-> Mais comment gérer un seul pointeur _void_ ? Ma fonction à besoin de trois arguments de types différent !
+> Mais comment gérer un seul pointeur _void_ ? Ma fonction à besoin de trois arguments de types différents !
 
 Pas de panique c'est en réalité assez simple. Nous allons créer une structure contenant tous vos arguments avec le bon type, et ensuite caster le pointer de cette structure en `void *`. De cette façon, il suffira de recaster la structure dans l'autre sens dans votre fonction, et vous pourrez ainsi faire passer autant d'arguments que vous voudrez !
 
