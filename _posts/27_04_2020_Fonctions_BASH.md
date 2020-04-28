@@ -107,7 +107,7 @@ timing 1
 timing 2
 timing 4
 ```
-**PRATIQUE:** *Voici [shellcheck][4], un analyseur statique (comme cppcheck en C), qui permet l'obtention d'un feedback interactif de vos scripts. *
+**PRATIQUE:** *Voici [shellcheck][4], un analyseur statique (comme cppcheck en C), qui permet l'obtention d'un feedback interactif de vos scripts.*
 
 [4]: https://www.shellcheck.net/
 
