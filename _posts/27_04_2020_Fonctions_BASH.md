@@ -50,7 +50,7 @@ ${array[*]} -> input1.txt input2.txt input3.txt
 
 ## L'exemple
 
-Voici un exemple concret lié à la réalisation de notre projet. La fonction **`timing`** prenant comme argument le nombre de threads de calcul indique le temps d'execution *(ainsi que d'autres mesures utiles)* de l'executable **`fact`** pour différents fichiers d'entrée.
+Voici un exemple concret lié à la réalisation de notre projet. La fonction **`timing`** prenant comme argument le nombre de threads de calcul indique le temps d'exécution *(ainsi que d'autres mesures de performance)* de l'exécutable **`fact`** pour différents fichiers d'entrée.
 ```bash
 timing(){
 	make fact
@@ -58,6 +58,7 @@ timing(){
 	./fact -N "$1" input1.txt output.txt
 	
 	array=(input1.txt input2.txt input3.txt)
+	
 	for i in ${array[*]}
 	do
 	echo Time : "$i" with "$1" threads
@@ -92,6 +93,7 @@ timing(){
 	./fact -N "$1" input1.txt output.txt
 	
 	array=(input1.txt input2.txt input3.txt)
+	
 	for i in ${array[*]}
 	do
 	echo Time : "$i" with "$1" threads
@@ -105,7 +107,7 @@ timing 1
 timing 2
 timing 4
 ```
-**PRATIQUE:** *Voici [un debugger][4] pour corriger de manière interactive vos scripts.*
+**PRATIQUE:** *Voici [shellcheck][4], un analyseur statique (comme cppcheck en C), qui permet l'obtention d'un feedback interactif de vos scripts. *
 
 [4]: https://www.shellcheck.net/
 
@@ -113,7 +115,7 @@ Pour exectuer le fichier **`timing.sh`** :
 ```bash
 ./timing.sh
 ```
-**ASTUCE:** *Il est probable que vous aillez à modifier les permissons (ici, d'execution) du fichier créé. Il suffit d'entrer la commande* `chmod +x timing.sh` *pour rendre l'execution du fichier .sh accessible.  La commande* `ls -l` *permet de vérifier la bonne execution de l'opération.*
+**ASTUCE:** *Il est probable que vous aillez à modifier les permissons (ici, d'execution) du fichier créé. Il suffit d'entrer la commande* `chmod +x timing.sh` *pour rendre l'execution du fichier .sh accessible.  La commande* `ls -l` *permet de vérifier la bonne exécution de l'opération.*
 
 
 Bien entendu, ceci n'est qu'une introduction aux fonctions en BASH et celle-ci n'attend qu'à être approfondie. Je vous invite vivement à vous documenter pour dénicher peut-être d'autres astuces facilitant encore davantage l'execution de commandes.
