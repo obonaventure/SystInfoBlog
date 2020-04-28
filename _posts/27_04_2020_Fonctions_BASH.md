@@ -1,6 +1,8 @@
 # Fonctions en BASH
 
-Vous avez sûrement déjà perdu patience à retaper « bêtement » des instructions dans votre terminal. Bien qu’existent des petits raccourcis (EX : fléche du haut) pour récupérer des instructions précédentes, ici est proposé une solution plus générale et modulable : **Les fonctions en language BASH**. Elles constituent un moyen efficace pour effectuer des commandes groupées qui doivent être répétées. 
+Vous avez sûrement déjà perdu patience à retaper « bêtement » des instructions dans votre terminal. Bien qu’existent des [raccourcis][5] (EX : fléche du haut) pour récupérer des instructions précédentes, ici est proposé une solution plus générale et modulable : **Les fonctions en language BASH**. Elles constituent un moyen efficace pour effectuer des commandes groupées qui doivent être répétées. 
+
+[5]: https://ucl-ingi.github.io/LEPL1503-Blog/arrows/
 
 ## Le format
 
@@ -17,7 +19,7 @@ Il est bien sûr possible de passer des arguments à une fonction. Les arguments
 ```bash
 func arg1 arg2
 ```
-A l'intérieur des fonctions, les arguments sont accessibles par les appels **"$1"**, **"$2"**, ...
+A l'intérieur des fonctions, les arguments sont accessibles par **"$1"**, **"$2"**, ...
 
 **ATTENTION:** *les arguments ne doivent pas être indiqués dans les paranthèses lors de la définition de la fonction.*
 
@@ -30,6 +32,8 @@ do
 <commands>
 done
 ```
+**REMARQUE: ** 
+
 Ici, les éléments de la liste sont assignés, les uns après les autres, à la variable `var`. A chaque itération, les commandes entre `do` et `done` sont executées.
 
 ## L'exemple
