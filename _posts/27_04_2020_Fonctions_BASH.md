@@ -32,7 +32,9 @@ do
 <commands>
 done
 ```
-**REMARQUE: ** 
+**REMARQUE:** *Ici les [listes][6] ont été introduites. En bash, une liste est initialisée en enfermant entre paranthèses ses éléments, séparés d'un espace. (EX: `list = (input1.txt input2.txt input3.txt)`)
+
+[6]: https://www.linuxjournal.com/content/bash-arrays
 
 Ici, les éléments de la liste sont assignés, les uns après les autres, à la variable `var`. A chaque itération, les commandes entre `do` et `done` sont executées.
 
@@ -111,3 +113,5 @@ Sources:
 * https://docs.oracle.com/cd/E19424-01/820-4811/anobm/index.html
 * https://askubuntu.com/questions/434289/why-doesnt-the-time-command-work-with-any-option
 * http://man7.org/linux/man-pages/man1/time.1.html
+* https://ucl-ingi.github.io/LEPL1503-Blog/arrows/
+* https://www.linuxjournal.com/content/bash-arrays
