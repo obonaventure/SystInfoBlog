@@ -57,7 +57,8 @@ timing(){
 	
 	./fact -N "$1" input1.txt output.txt
 	
-	for i in input1.txt input2.txt input3.txt
+	array=(input1.txt input2.txt input3.txt)
+	for i in ${array[*]}
 	do
 	echo Time : "$i" with "$1" threads
 	command time -f "Real elapsed time [s] \t %e \nMax portion of RAM occupied [Kbytes] \t %M\n" ./fact -N "$1" "$i" output.txt
@@ -90,10 +91,11 @@ timing(){
 	
 	./fact -N "$1" input1.txt output.txt
 	
-	for i in input1.txt input2.txt input3.txt
+	array=(input1.txt input2.txt input3.txt)
+	for i in ${array[*]}
 	do
-	echo Time : $i with "$1" threads
-	command time -f "Real elapsed time [s] \t %e \nMax portion of RAM occupied [Kbytes] \t %M\n" ./fact -N "$1" $i output.txt
+	echo Time : "$i" with "$1" threads
+	command time -f "Real elapsed time [s] \t %e \nMax portion of RAM occupied [Kbytes] \t %M\n" ./fact -N "$1" "$i" output.txt
 	done
 	
 	make clean
