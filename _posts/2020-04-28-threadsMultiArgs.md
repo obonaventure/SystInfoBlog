@@ -24,29 +24,69 @@ Pas de panique c'est en réalité assez simple. Nous allons créer une structure
 
 Par exemple, une fonction 
 ```
-int max(int a, int b){
-    if (a >= b) return a;
-    else return b;
+typedef struct rep{
+        double min;
+        double max;
+} rep_t;
+
+rep_t minmax(double a, double b, double c){
+    rep_t rep;
+    if (a >= b && a>= c) {
+        rep.max = a;
+        rep.min = (b < c) ? b : c;
+    }
+    else if ( b >= c && b >= a){
+        rep.max = b;
+        rep.min = (a < c) ? a : c;
+    }
+    else {
+        rep.max = c;
+        rep.min = (a < b) ? a : b;
+    }
+    return rep;
 }
 ```
 deviendra
 ```
-typedef struct max_args{
-    int a;
-    int b;
-} max_args_t;
+#include <stdlib.h>
 
-void *max(void *arguments){
-    max_args_t *args = (max_args_t *) arguments
-    int a = args->a;
-    int b = args->b;
+typedef struct rep{
+        double min;
+        double max;
+} rep_t;
 
-    if (a >= b) return (void *) &(args->a);
-    else return (void *) &(args->b);
+typedef struct args{
+    double a;
+    double b;
+    double c;
+} args_t;
+
+void *minmax(void *arguments){
+    args_t *args = (args_t *) arguments;
+    double a = args->a;
+    double b = args->b;
+    double c = args->c;
+
+    rep_t *rep = malloc(sizeof(rep_t));
+    if (rep == NULL) return NULL;
+    
+    if (a >= b && a >= c) {
+        rep->max = a;
+        rep->min = (b < c) ? b : c;
+    }
+    else if ( b >= c && b >= a){
+        rep->max = b;
+        rep->min = (a < c) ? a : c;
+    }
+    else {
+        rep->max = c;
+        rep->min = (a < b) ? a : b;
+    }
+    return (void *) rep;
 }
 ```
-On remarquera que je ne retourne pas `&a` ou `&b`, mais bien `&(args->a), &(args->b)`, car je ne veux pas retourner un pointeur vers une variable locale (elle disparaitrait à la fin de l'exécution de ma fonction) j'utilise donc ici le fait que `args->a` `args->b` on été déclarés hors de la fonction.
-Le `(void *)` caste le pointeur _int_ afin de respecter totalement ce que la définition de notre fonction nous impose.
+On remarquera que je ne retourne pas `&rep`, car je ne veux pas retourner un pointeur vers une variable locale (elle disparaitrait à la fin de l'exécution de ma fonction) j'utilise donc ici un malloc afin d'obtenir une zone mémoire qui ne sera pas effacée à la fin de ma fonction.
+Le `(void *)` caste le pointeur _rep\_t_ afin de respecter totalement ce que la définition de notre fonction nous impose.
 
 
-L'exemple que je viens de vous donner est simpliste, mais en utilisant le même stratagème que pour les arguments, vous pourriez retourner des structures de données aussi complexes que vous le désireriez, simplement en castant leur pointeur en `void *`
+L'exemple que je viens de vous donner devrait couvrir l'ensemble des cas dont vous pourriez avoir besoin, de plusieurs arguments à un retour en structure "complexe". J'espère que cela vous aidera.
