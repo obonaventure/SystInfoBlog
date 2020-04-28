@@ -38,7 +38,7 @@ Ici, les éléments de la liste sont assignés, les uns après les autres, à la
 ```
 array = (input1.txt input2.txt input3.txt)
 ```
-*Les éléments sont individuellement accessibles avec la syntaxe habituelle des listes. Pour référer à la liste en entier ou à un élément particulier de celle-ci:*
+*Elles suivent la syntaxe habituelle des listes. Pour référer à la liste en entier ou à un élément particulier de celle-ci:*
 ```
 ${array[0]} -> input1.txt 
 ${array[1]} -> input2.txt 
