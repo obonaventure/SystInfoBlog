@@ -32,11 +32,21 @@ do
 <commands>
 done
 ```
-**REMARQUE:** *Ici les [listes][6] ont été introduites. En bash, une liste est initialisée en enfermant entre paranthèses ses éléments, séparés d'un espace. (EX: `list = (input1.txt input2.txt input3.txt)`)
+Ici, les éléments de la liste sont assignés, les uns après les autres, à la variable `var`. A chaque itération, les commandes entre `do` et `done` sont executées.
+
+**REMARQUE:** *Ici les [listes][6] ont été introduites. En bash, une liste est initialisée en enfermant entre paranthèses ses éléments, séparés d'un espace.*
+```
+array = (input1.txt input2.txt input3.txt)
+```
+*Les éléments sont individuellement accessibles avec la syntaxe habituelle des listes. Pour référer à la liste en entier ou à un élément particulier de celle-ci:*
+```
+${array[0]} -> input1.txt 
+${array[1]} -> input2.txt 
+${array[2]} -> input3.txt
+${array[*]} -> input1.txt input2.txt input3.txt
+```
 
 [6]: https://www.linuxjournal.com/content/bash-arrays
-
-Ici, les éléments de la liste sont assignés, les uns après les autres, à la variable `var`. A chaque itération, les commandes entre `do` et `done` sont executées.
 
 ## L'exemple
 
@@ -49,8 +59,8 @@ timing(){
 	
 	for i in input1.txt input2.txt input3.txt
 	do
-	echo Time : $i with "$1" threads
-	command time -f "Real elapsed time [s] \t %e \nMax portion of RAM occupied [Kbytes] \t %M\n" ./fact -N "$1" $i output.txt
+	echo Time : "$i" with "$1" threads
+	command time -f "Real elapsed time [s] \t %e \nMax portion of RAM occupied [Kbytes] \t %M\n" ./fact -N "$1" "$i" output.txt
 	done
 	
 	make clean
