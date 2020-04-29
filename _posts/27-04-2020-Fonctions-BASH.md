@@ -121,7 +121,7 @@ Pour exectuer le fichier **`timing.sh`** :
 ```
 **ASTUCE:** *Il est probable que vous aillez à modifier les permissons (ici, d'execution) du fichier créé. Il suffit d'entrer la commande* `chmod +x timing.sh` *pour rendre l'execution du fichier .sh accessible.  La commande* `ls -l` *permet de vérifier la bonne exécution de l'opération.*
 
-**POUR INFO:** *A noter que les [fichiers][8] `.sh` ne sont pas propre au shell BASH (d'ailleurs, il a fallu indiquer à ce fichier le shell à utiliser `#!/bin/bash`). Il existe un type de fichier propre au BASH: les [fichier][6]* `.bashrc` *qui permettent une configuration interactive et permanente de votre shell BASH.* A noter aussi le [fichier][7] `.profile` qui d'une certaine manière initialise et particularise votre environnement dans le shell BASH.
+**POUR INFO:** *A noter que les [fichiers][8] `.sh` ne sont pas propre au shell BASH (d'ailleurs, il a fallu indiquer à ce fichier le shell à utiliser `#!/bin/bash`). Il existe un type de fichier propre au BASH: les [fichiers][6]* `.bashrc` *qui permettent une configuration interactive et permanente de votre shell BASH.* A noter aussi le [fichier][7] `.profile` qui d'une certaine manière initialise et particularise votre environnement dans le shell BASH.
 
 [6]: https://unix.stackexchange.com/questions/129143/what-is-the-purpose-of-bashrc-and-how-does-it-work
 [7]: https://www.quora.com/What-is-profile-file-in-Linux
@@ -138,3 +138,6 @@ Sources:
 * http://man7.org/linux/man-pages/man1/time.1.html
 * [Blog LEPL1503 : Déplacement efficace sur la ligne de commande][5]
 * https://www.linuxjournal.com/content/bash-arrays
+* https://stackoverflow.com/questions/13805295/whats-a-sh-file
+* https://unix.stackexchange.com/questions/129143/what-is-the-purpose-of-bashrc-and-how-does-it-work
+* https://www.quora.com/What-is-profile-file-in-Linux
