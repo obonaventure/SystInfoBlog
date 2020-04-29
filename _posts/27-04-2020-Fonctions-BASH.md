@@ -121,7 +121,7 @@ Pour exectuer le fichier **`timing.sh`** :
 ```
 **ASTUCE:** *Il est probable que vous aillez à modifier les permissons (ici, d'execution) du fichier créé. Il suffit d'entrer la commande* `chmod +x timing.sh` *pour rendre l'execution du fichier .sh accessible.  La commande* `ls -l` *permet de vérifier la bonne exécution de l'opération.*
 
-**POUR INFO:** *A noter que les [fichiers][8] `.sh` ne sont pas propre au shell BASH (d'ailleurs, il a fallu indiquer à ce fichier le shell à utiliser `#!/bin/bash`). Il existe un type de fichier propre au BASH: les [fichiers][6]* `.bashrc` *qui permettent une configuration interactive et permanente (par default) de votre shell BASH (voir, par exemple, [l'article de Diego Houtart][9]).* A noter aussi le [fichier][7] `.profile` qui d'une certaine manière initialise et particularise votre environnement dans le shell BASH.
+**POUR INFO:** *A noter que les [fichiers][8] `.sh` ne sont pas propre au shell BASH (d'ailleurs, il a fallu indiquer à ce fichier le shell à utiliser `#!/bin/bash`). Il existe un type de fichier propre au BASH: les [fichiers][6]* `.bashrc` *qui permettent une configuration interactive et permanente (par default) de votre shell BASH (voir, par exemple, [l'article de Diego Houtart][9]). A noter aussi le [fichier][7]* `.profile` *qui d'une certaine manière initialise et particularise votre environnement dans le shell BASH.*
 
 [6]: https://www.maketecheasier.com/what-is-bashrc/
 [7]: https://www.quora.com/What-is-profile-file-in-Linux
