@@ -131,5 +131,5 @@ Sources:
 * https://docs.oracle.com/cd/E19424-01/820-4811/anobm/index.html
 * https://askubuntu.com/questions/434289/why-doesnt-the-time-command-work-with-any-option
 * http://man7.org/linux/man-pages/man1/time.1.html
-* {{site.baseurl}}/arrows/
+* [Blog LEPL1503 : Déplacement efficace sur la ligne de commande][5]
 * https://www.linuxjournal.com/content/bash-arrays
