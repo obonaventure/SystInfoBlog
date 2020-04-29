@@ -6,7 +6,7 @@ author: Matthieu Boucquey
 
 Vous avez sûrement déjà perdu patience à retaper « bêtement » des instructions dans votre terminal. Bien qu’existent des [raccourcis][5] (par exemple, fléche du haut) pour récupérer des instructions précédentes, ici est proposé une solution plus générale et modulable : **les fonctions en language BASH**. Elles constituent un moyen efficace pour effectuer des commandes groupées qui doivent être répétées. 
 
-[5]: {{https://ucl-ingi.github.io/LEPL1503-Blog/arrows/}}/arrows/
+[5]:{{site.baseurl}}/arrows/
 
 ## Le format
 
@@ -131,5 +131,5 @@ Sources:
 * https://docs.oracle.com/cd/E19424-01/820-4811/anobm/index.html
 * https://askubuntu.com/questions/434289/why-doesnt-the-time-command-work-with-any-option
 * http://man7.org/linux/man-pages/man1/time.1.html
-* {{https://ucl-ingi.github.io/LEPL1503-Blog/arrows/}}/arrows/
+* {{site.baseurl}}/arrows/
 * https://www.linuxjournal.com/content/bash-arrays
