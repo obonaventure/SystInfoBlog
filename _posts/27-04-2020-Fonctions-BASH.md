@@ -69,7 +69,7 @@ timing(){
 }
 ```
 Quelques commentaires :
-* Avant de prendre des mesures sur l'exécutable `fact`, il est recommandé de l'executer une première fois. *(Fact se trouve alors dans la cache du*[*filesystem*](https://docs.oracle.com/cd/E19424-01/820-4811/anobm/index.html)*)*. Ceci permet d'éviter que systématiquement la première exécution soit plus lente que les autres.
+* Avant de prendre des mesures sur l'exécutable `fact`, il est recommandé de l'executer une première fois. *(Fact se trouve alors dans la cache du* [*filesystem*](https://docs.oracle.com/cd/E19424-01/820-4811/anobm/index.html)*)*. Ceci permet d'éviter que systématiquement la première exécution soit plus lente que les autres.
 * La commande `command` permet d'écraser le mot clé `time` fourni par le shell bash au profit de [l'utilitaire](http://man7.org/linux/man-pages/man1/time.1.html) `time` davantage modulable. *Petit test:* `type time` *VS* `type command type` *dans votre terminal.*
 
 ## En pratique
