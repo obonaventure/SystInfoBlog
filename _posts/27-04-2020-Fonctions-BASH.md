@@ -4,9 +4,7 @@ title: Fonctions en BASH
 author: Matthieu Boucquey
 ---
 
-Vous avez sûrement déjà perdu patience à retaper « bêtement » des instructions dans votre terminal. Bien qu’existent des [raccourcis][5] (par exemple, fléche du haut) pour récupérer des instructions précédentes, ici est proposé une solution plus générale et modulable : **les fonctions en language BASH**. Elles constituent un moyen efficace pour effectuer des commandes groupées qui doivent être répétées. 
-
-[5]:{{site.baseurl}}/arrows/
+Vous avez sûrement déjà perdu patience à retaper « bêtement » des instructions dans votre terminal. Bien qu’existent des [raccourcis]({{site.baseurl}}/arrows/) (par exemple, fléche du haut) pour récupérer des instructions précédentes, ici est proposé une solution plus générale et modulable : **les fonctions en language BASH**. Elles constituent un moyen efficace pour effectuer des commandes groupées qui doivent être répétées. 
 
 ## Le format
 
@@ -25,7 +23,7 @@ func arg1 arg2
 ```
 A l'intérieur des fonctions, les arguments sont accessibles par **"$1"**, **"$2"**, ...
 
-**ATTENTION:** *les arguments ne doivent pas être indiqués dans les paranthèses lors de la définition de la fonction.*
+**ATTENTION:** *les arguments ne doivent pas être indiqués dans les parenthèses lors de la définition de la fonction.*
 
 ## Boucle FOR
 
@@ -38,7 +36,7 @@ done
 ```
 Ici, les éléments de la liste sont assignés, les uns après les autres, à la variable `var`. A chaque itération, les commandes entre `do` et `done` sont executées.
 
-**REMARQUE:** *Ici les [listes][6] ont été introduites. En bash, une liste est initialisée en enfermant entre paranthèses ses éléments, séparés d'un espace.*
+**REMARQUE:** *Ici les [listes](https://www.linuxjournal.com/content/bash-arrays) ont été introduites. En bash, une liste est initialisée en enfermant entre paranthèses ses éléments, séparés d'un espace.*
 ```
 array = (input1.txt input2.txt input3.txt)
 ```
@@ -49,8 +47,6 @@ ${array[1]} -> input2.txt
 ${array[2]} -> input3.txt
 ${array[*]} -> input1.txt input2.txt input3.txt
 ```
-
-[6]: https://www.linuxjournal.com/content/bash-arrays
 
 ## L'exemple
 
@@ -73,12 +69,8 @@ timing(){
 }
 ```
 Quelques commentaires :
-* Avant de prendre des mesures sur l'executable `fact`, il est recommandé de l'executer une première fois. *(Fact se trouve alors dans la cache du [filesystem][1])*. Ceci permet d'éviter que systématiquement la première exécution soit plus lente que les autres.
-* La commande `command` permet d'écraser le mot clé `time` fourni par le shell bash au profit de la [véritable commande][3] `time` davantage modulable. *Petit test:* `type time` *VS* `type command type` *dans votre terminal.*
-
-[1]: https://docs.oracle.com/cd/E19424-01/820-4811/anobm/index.html
-[2]: https://askubuntu.com/questions/434289/why-doesnt-the-time-command-work-with-any-option
-[3]: http://man7.org/linux/man-pages/man1/time.1.html
+* Avant de prendre des mesures sur l'exécutable `fact`, il est recommandé de l'executer une première fois. *(Fact se trouve alors dans la cache du*[*filesystem*](https://docs.oracle.com/cd/E19424-01/820-4811/anobm/index.html)*)*. Ceci permet d'éviter que systématiquement la première exécution soit plus lente que les autres.
+* La commande `command` permet d'écraser le mot clé `time` fourni par le shell bash au profit de [l'utilitaire](http://man7.org/linux/man-pages/man1/time.1.html) `time` davantage modulable. *Petit test:* `type time` *VS* `type command type` *dans votre terminal.*
 
 ## En pratique
 Il y a en pratique deux "voies" pour définir des fonctions en BASH.
@@ -87,7 +79,7 @@ Il y a en pratique deux "voies" pour définir des fonctions en BASH.
 Il est possible de définir directement une fonction dans votre terminal. Neanmoins, ceci implique que votre fonction ne sera pas sauvegardée à long terme.
 
 ### Dans un fichier .sh
-Il est donc préférable de l'insérer dans un fichier .sh, autrement appelé **script**. Repenant l'exemple ci-dessus, voici le contenu du fichier **`timing.sh`** *(situé dans le même répertoire que votre Makefile)* où la fonction `timing` est executée 3 fois avec un nombre de threads de calcul croissant.
+Il est donc préférable de l'insérer dans un fichier .sh, autrement appelé **script**. Reprenant l'exemple ci-dessus, voici le contenu du fichier **`timing.sh`** *(situé dans le même répertoire que votre Makefile)* où la fonction `timing` est executée 3 fois avec un nombre de threads de calcul croissant.
 ```bash
 #!/bin/bash
 
@@ -111,34 +103,14 @@ timing 1
 timing 2
 timing 4
 ```
-**PRATIQUE:** *Voici [shellcheck][4], un analyseur statique (comme cppcheck en C), qui permet l'obtention d'un feedback interactif de vos scripts.*
-
-[4]: https://www.shellcheck.net/
+**PRATIQUE:** *Voici [shellcheck](https://www.shellcheck.net/), un analyseur statique (comme cppcheck en C), qui permet l'obtention d'un feedback interactif de vos scripts.*
 
 Pour exectuer le fichier **`timing.sh`** : 
 ```bash
 ./timing.sh
 ```
-**ASTUCE:** *Il est probable que vous aillez à modifier les permissons (ici, d'execution) du fichier créé. Il suffit d'entrer la commande* `chmod +x timing.sh` *pour rendre l'execution du fichier .sh accessible.  La commande* `ls -l` *permet de vérifier la bonne exécution de l'opération.*
+**ASTUCE:** *Il est probable que vous aillez à modifier les permissions (ici, d'execution) du fichier créé. Il suffit d'entrer la commande* `chmod +x timing.sh` *pour rendre l'exécution du fichier .sh accessible.  La commande* `ls -l` *permet de vérifier la bonne exécution de l'opération.*
 
-**POUR INFO:** *A noter que les [fichiers][8]* `.sh` *ne sont pas propre au shell BASH (d'ailleurs, il a fallu indiquer à ce fichier le shell à utiliser* `#!/bin/bash`*). Il existe un type de fichier propre au BASH: les [fichiers][6]* `.bashrc` *qui permettent une configuration interactive et permanente (par default) de votre shell BASH (voir, par exemple, [l'article de Diego Houtart][9]). A noter aussi le [fichier][7]* `.profile` *qui d'une certaine manière initialise et particularise votre environnement dans le shell BASH.*
+**POUR INFO:** *A noter que les [fichiers](https://stackoverflow.com/questions/13805295/whats-a-sh-file)* `.sh` *ne sont pas propre au shell BASH (d'ailleurs, il a fallu indiquer à ce fichier le shell à utiliser* `#!/bin/bash`*). Il existe un type de fichier propre au BASH: les [fichiers](https://www.maketecheasier.com/what-is-bashrc/)* `.bashrc` *qui permettent une configuration permanente (par default) de votre shell BASH (voir, par exemple, [l'article de Diego Houtart]({{site.baseurl}}/2020-04-08-Alias/) ). A noter aussi le [fichier](https://www.quora.com/What-is-profile-file-in-Linux)* `.profile` *qui d'une certaine manière initialise et particularise votre environnement dans le shell BASH.*
 
-[6]: https://www.maketecheasier.com/what-is-bashrc/
-[7]: https://www.quora.com/What-is-profile-file-in-Linux
-[8]: https://stackoverflow.com/questions/13805295/whats-a-sh-file
-[9]: {{site.baseurl}}/2020-04-08-Alias/
-
-Bien entendu, ceci n'est qu'une introduction aux fonctions en BASH et celle-ci n'attend qu'à être approfondie. Je vous invite vivement à vous documenter pour dénicher peut-être d'autres astuces facilitant encore davantage l'execution de commandes.
-
-
-Sources:
-* https://www.shellscript.sh/functions.html
-* https://ryanstutorials.net/bash-scripting-tutorial/bash-functions.php
-* https://docs.oracle.com/cd/E19424-01/820-4811/anobm/index.html
-* https://askubuntu.com/questions/434289/why-doesnt-the-time-command-work-with-any-option
-* http://man7.org/linux/man-pages/man1/time.1.html
-* [Blog LEPL1503 : Déplacement efficace sur la ligne de commande][5]
-* https://www.linuxjournal.com/content/bash-arrays
-* https://stackoverflow.com/questions/13805295/whats-a-sh-file
-* https://www.maketecheasier.com/what-is-bashrc/
-* https://www.quora.com/What-is-profile-file-in-Linux
+Bien entendu, ceci n'est qu'une introduction aux fonctions en BASH et celle-ci n'attend qu'à être approfondie. Je vous invite vivement à vous documenter pour dénicher peut-être d'autres astuces facilitant encore davantage l'exécution de commandes.
