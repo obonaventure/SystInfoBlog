@@ -12,11 +12,11 @@ Pour pouvoir mettre tout ces résultats dans un joli graphique et pouvoir inclur
  ## Les Librairies Python
 
 
-> [*os*](https://docs.python.org/3/library/os.html)
-> [*numpy*](https://numpy.org/)
-> [*matplotlib*](https://matplotlib.org/)
-> [*py-cpuinfo*](https://github.com/workhorsy/py-cpuinfo) (pas obligatoire)
-> [*time*](https://docs.python.org/fr/3/library/time.html)
+> [*os*](https://docs.python.org/3/library/os.html)\
+> [*numpy*](https://numpy.org/)\
+> [*matplotlib*](https://matplotlib.org/)\
+> [*py-cpuinfo*](https://github.com/workhorsy/py-cpuinfo) (pas obligatoire)\
+> [*time*](https://docs.python.org/fr/3/library/time.html)\
 > [*ctypes*](https://docs.python.org/3/library/ctypes.html)
 
 ## Les imports dans le programme
