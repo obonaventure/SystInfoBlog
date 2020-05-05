@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Optimisation du nombre de threaads au moyen de Python
+title: Optimisation du nombre de threads au moyen de Python
 author: Eliot Peeters
 ---
 
