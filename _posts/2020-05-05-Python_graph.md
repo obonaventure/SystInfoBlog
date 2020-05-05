@@ -1,4 +1,8 @@
-# Optimisation du nombre de threads au moyen de Python
+---
+layout: post
+title: Optimisation du nombre de threaads au moyen de Python
+author: Eliot Peeters
+---
 
 Afin de trouver le nombre de threads optimal, il nous faudrait exécuter plusieurs fois le programme avec un nombre de threads différent à chaque exécution. Cependant avec un même nombre de thread, le temps d'exécution peut varier. Il est donc interessant d'exécuter le programme **X** fois pour **n** threads et ceci de **1** à **N** threads. 
 
