@@ -12,12 +12,12 @@ Pour pouvoir mettre tout ces résultats dans un joli graphique et pouvoir inclur
  ## Les Librairies Python
 
 
-> [*os*](https://docs.python.org/3/library/os.html)\
-> [*numpy*](https://numpy.org/)\
-> [*matplotlib*](https://matplotlib.org/)\
-> [*py-cpuinfo*](https://github.com/workhorsy/py-cpuinfo) (pas obligatoire)\
-> [*time*](https://docs.python.org/fr/3/library/time.html)\
-> [*ctypes*](https://docs.python.org/3/library/ctypes.html)
+> [*os*](https://docs.python.org/3/library/os.html) une librairie permettant d'éxécuter des lignes de bash\
+> [*numpy*](https://numpy.org/) une librairie mathématiques\
+> [*matplotlib*](https://matplotlib.org/) une librairie permettant de représenter des graphiques\
+> [*py-cpuinfo*](https://github.com/workhorsy/py-cpuinfo) (pas obligatoire) une librairie permettant de lire les caractéristiques du processeur\
+> [*time*](https://docs.python.org/fr/3/library/time.html) une librairie permettant de mesurer le temps\
+> [*ctypes*](https://docs.python.org/3/library/ctypes.html) une librairie permettant l'utilisation de fonctions C dans un code Python
 
 ## Les imports dans le programme
 ```python
@@ -32,7 +32,7 @@ Pour exécuter notre code C depuis python, il y a deux manières possibles, soit
 
 ### Exécution version shell
 
-Pour cette version, le principe est d'exécuter le programme C dans le terminal au moyen de python. Donc pour peu que l'exectuable soit de la forme **./fact [-N nombre_de_threads] fichier_input fichier_output** et qu'il écrive uniquement le temps en microsecondes dans le terminal cette verion fonctionnera. On écrit premièrement une fonction qui prend comme argument le nombre de threads et qui retourne le temps pris en micro-secondes au moyen de la librairie [*os*](https://docs.python.org/3/library/os.html) qui est comprise de base dans python :
+Pour cette version, le principe est d'exécuter le programme C dans le terminal au moyen de python. Donc pour peu que l'exectuable soit de la forme **./fact [-N nombre_de_threads] fichier_input fichier_output** et qu'il écrive uniquement le temps en microsecondes dans le terminal cette version fonctionnera. On écrit premièrement une fonction qui prend comme argument le nombre de threads et qui retourne le temps pris en micro-secondes au moyen de la librairie [*os*](https://docs.python.org/3/library/os.html) qui est comprise de base dans python :
 
 ```python
 def exec (Number_of_thread) : 
@@ -44,20 +44,20 @@ def exec (Number_of_thread) :
         time_taken = -1
     return time_taken
 ```
-### Exectuion version C
+### Exécution directe du code C
 
 ¨Pour cette version, le principe est d'exécuter une des fonctions du code C directement dans le code Python. Pour ce faire, il nous faut d'abord créer une librairie partagée au moyen de [*gcc(1)*](https://linux.die.net/man/1/gcc) en entrant la commande suivante dans le terminal : 
 
 ```bash
 gcc -fPIC -o fact.so fact.c -lpthread
 ```
-Une fois cette librairie créée, nous pouvos directement l'importer dans python au moyen de ces lignes définissant les variables globales dans notre programme :
+Une fois cette librairie créée, nous pouvons directement l'importer dans python au moyen de ces lignes définissant des références globales dans notre programme :
 
 ```python
 so_file = "/Chemin_vers_le_fichier/fact.so"
 fact = CDLL(so_file)
 ```
-Maintenant, il est possible d'appeler n'importe quel fonction de programme C dans python au moyen de la ligne de code :
+Maintenant, il est possible d'appeler n'importe quelle fonction du programme C dans python au moyen de la ligne de code :
 ```python
 fact.fun()
 ```
@@ -72,11 +72,11 @@ def exec_2 (Number_of_thread) :
     return time_taken
 ```
 
-Il est à noter qu'ici le temps est directement mesurer en Python car passer par [*gettimeofday(3P)*](http://man7.org/linux/man-pages/man3/gettimeofday.3p.html) ne nous lit pas des valeurs correctes lorsque celle-ci est executée depuis Python. Enfin il faut faire bien attention que la fonction main ai bien fini son exécution avant de passer à l'exécution suivante afin d'éviter des soucis entre les threads. Pour ceci il peut être interresant de créer une fonction auxiliaire comme décrite dans le post sur le blog concernant les mesures de temps.
+Il est à noter qu'ici le temps est directement mesuré en Python car passer par [*gettimeofday(3P)*](http://man7.org/linux/man-pages/man3/gettimeofday.3p.html) ne nous lit pas des valeurs correctes lorsque celle-ci est executée depuis Python. Enfin il faut faire bien attention que la fonction main ait bien fini son exécution avant de passer à l'exécution suivante afin d'éviter des soucis entre les threads. Pour ceci il peut être interresant de créer une fonction auxiliaire comme décrite dans le [post](https://ucl-ingi.github.io/LEPL1503-Blog/timer/) sur le blog concernant les mesures de temps.
 
 ### Reste du Programme
 
-On écrit maintenant une fonction qui prend pour arguments le nombre de threads maximum et le nombre d'exéctuions du programme pour **n** threads :
+On écrit maintenant une fonction qui prend pour arguments le nombre de threads maximum et le nombre d'exécutions du programme pour **n** threads :
 
 ```python
 def main (number_of_exec,max_number_of_thread):
@@ -94,7 +94,7 @@ def main (number_of_exec,max_number_of_thread):
     grapher(big_array,n_error)
 ```
 
-Et finalement il ne nous reste plus qu'à écrire la fonction [*grapher()*]() qui prend pour argument l'array des temps d'executioné et retourne un graphique. Il s'agit uniquement de fonctions matplotlib et numpy de base, je n'entrerais donc pas dans les détails sur cette fonction
+Et finalement il ne nous reste plus qu'à écrire la fonction [*grapher()*]() qui prend pour argument l'array des temps d'execution et retourne un graphique. Il s'agit uniquement de fonctions matplotlib et numpy de base, je n'entrerais donc pas dans les détails sur cette fonction
 
 ```python
 def grapher(array,n_error):
@@ -129,6 +129,6 @@ Et voilà après en entrant par exemple cette commande dans le programme python 
 ```python
 main(5, 8)
 ```
-Voici le graphique obtenu. En vert on peut voir le temps d executioé maximum et minimum observés lors des **X** exéctuions pour **n** threads et en bleu la moyenne du temps mis pour **n** threads, et en rouge on peut voir le minimum de la moyenne du graph. Enfin dans chaque cadre nous pouvons voir les valeurs de la déviation standard, la moyenne, le maximum ainsi que le minimum. Dans le coin en bas à gauche, il y a le nombre d'erreurs encontrée lors de l'executionédu programme fact si jamais il vennait à y en avoir.
+Voici le graphique obtenu. En vert on peut voir les temps d execution maximum et minimum observés lors des **X** exéctuions pour **n** threads et en bleu la moyenne du temps mis pour **n** threads, et en rouge on peut voir le minimum de la moyenne du graphe. Enfin dans chaque cadre nous pouvons voir les valeurs de la déviation standard, la moyenne, le maximum ainsi que le minimum. Dans le coin en bas à gauche, il y a le nombre d'erreurs rencontrées lors de l'execution du programme fact si jamais il vennait à y en avoir.
 
 ![Graph](https://raw.githubusercontent.com/Eliot-P/public_png/master/Graph2.png)
