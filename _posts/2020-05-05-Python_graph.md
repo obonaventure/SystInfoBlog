@@ -8,18 +8,19 @@ Afin de trouver le nombre de threads optimal, il nous faudrait exécuter plusieu
 
 Pour pouvoir mettre tout ces résultats dans un joli graphique et pouvoir inclure ce dernier dans le rapport, une solution assez évidente est d'utiliser python et ses librairies [*matplotlib*](https://matplotlib.org/) et [*numpy*](https://numpy.org/).
 
-> 
- ## Les Librairies Python
+ 
+## Les Librairies Python
 
 
-> [*os*](https://docs.python.org/3/library/os.html) une librairie permettant d'éxécuter des lignes de bash\
-> [*numpy*](https://numpy.org/) une librairie mathématiques\
-> [*matplotlib*](https://matplotlib.org/) une librairie permettant de représenter des graphiques\
-> [*py-cpuinfo*](https://github.com/workhorsy/py-cpuinfo) (pas obligatoire) une librairie permettant de lire les caractéristiques du processeur\
-> [*time*](https://docs.python.org/fr/3/library/time.html) une librairie permettant de mesurer le temps\
-> [*ctypes*](https://docs.python.org/3/library/ctypes.html) une librairie permettant l'utilisation de fonctions C dans un code Python
+- [*os*](https://docs.python.org/3/library/os.html) une librairie permettant d'éxécuter des lignes de bash\
+- [*numpy*](https://numpy.org/) une librairie mathématiques\
+- [*matplotlib*](https://matplotlib.org/) une librairie permettant de représenter des graphiques\
+- [*py-cpuinfo*](https://github.com/workhorsy/py-cpuinfo) (pas obligatoire) une librairie permettant de lire les caractéristiques du processeur\
+- [*time*](https://docs.python.org/fr/3/library/time.html) une librairie permettant de mesurer le temps\
+- [*ctypes*](https://docs.python.org/3/library/ctypes.html) une librairie permettant l'utilisation de fonctions C dans un code Python
 
 ## Les imports dans le programme
+
 ```python
 import os
 from numpy import *
@@ -131,4 +132,5 @@ main(5, 8)
 ```
 Voici le graphique obtenu. En vert on peut voir les temps d execution maximum et minimum observés lors des **X** exéctuions pour **n** threads et en bleu la moyenne du temps mis pour **n** threads, et en rouge on peut voir le minimum de la moyenne du graphe. Enfin dans chaque cadre nous pouvons voir les valeurs de la déviation standard, la moyenne, le maximum ainsi que le minimum. Dans le coin en bas à gauche, il y a le nombre d'erreurs rencontrées lors de l'execution du programme fact si jamais il vennait à y en avoir.
 
-![Graph](https://raw.githubusercontent.com/Eliot-P/public_png/master/Graph2.png)
+![Graph]({{ site.baseurl }}/images/Graph2.png)
+
