@@ -1,120 +1,105 @@
-> March, 2016: If you're on an old version of Jekyll Now and run into a) build warnings or b) syntax highlighting issues caused by [Jekyll 3 and GitHub Pages updates](https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0), just :sparkles:[update your _config.yml](https://github.com/barryclark/jekyll-now/pull/445/files):sparkles: and you'll be set!
+Blog du projet P3, LEPL1503
+===========================
 
-# Jekyll Now
+[![Build Status](https://travis-ci.org/ucl-ingi/LEPL1503-Blog.svg?branch=master)](https://travis-ci.org/ucl-ingi/LEPL1503-Blog)
 
-**Jekyll** is a static site generator that's perfect for GitHub hosted blogs ([Jekyll Repository](https://github.com/jekyll/jekyll))
 
-**Jekyll Now** makes it easier to create your Jekyll blog, by eliminating a lot of the up front setup.
+Ce [blog](https://ucl-ingi.github.io/LEPL1503-Blog) comprend des informations utiles aux étudiants qui réalisent
+le projet du cours [LEPL1503](https://uclouvain.be/cours-2019-lepl1503) à
+l'[UCLouvain](https://www.uclouvain.be).
 
-- You don't need to touch the command line
-- You don't need to install/configure ruby, rvm/rbenv, ruby gems :relaxed:
-- You don't need to install runtime dependencies like markdown processors, Pygments, etc
-- If you're on Windows, this will make setting up Jekyll a lot easier
-- It's easy to try out, you can just delete your forked repository if you don't like it
+Ce blog est écrit en [Markdown](https://aksakalli.github.io/jekyll-doc-theme/docs/cheatsheet/) et est mis en ligne grâce à au logiciel
+[Jekyll](https://jekyllrb.com) de [GitHub](https://github.com).
 
-In a few minutes you'll be set up with a minimal, responsive blog like the one below giving you more time to spend on writing epic blog posts!
+Les étudiants sont encouragés à proposer des articles sur ce blog.
+Les étudiants
+dont les articles seront publiés recevront un bonus dans l'évaluation du
+cours.
 
-![Jekyll Now Theme Screenshot](/images/jekyll-now-theme-screenshot.jpg "Jekyll Now Theme Screenshot")
+Pour proposer un article pour le blog, nous vous invitons à réfléchir aux
+problèmes pratiques qui vous ont fait perdre du temps dans le cadre du projet
+et que vous avez résolu avec l'aide d'un des membres du groupe ou d'un
+tuteur. Décrivez brièvement ce problème en expliquant sa solution
+sous la forme d'un
+[nouvelle issue](https://github.com/UCL-INGI/LEPL1503-Blog/issues/new).
 
-## Quick Start
+Pour créer une issue sur GitHub, connectez-vous sur GitHub et choisissez un
+nom d'utilisateur et un mot de passe.
 
-### Step 1) Fork Jekyll Now to your User Repository
+Lors de votre premier accès à [https://github.com/UCL-INGI/LEPL1503-Blog](https://github.com/UCL-INGI/LEPL1503-Blog), GitHub vous recommande de lire le tutoriel accessible depuis [https://guides.github.com/activities/hello-world/](https://guides.github.com/activities/hello-world/), c'est une excellente idée.
 
-Fork this repo, then rename the repository to yourgithubusername.github.io.
+Voici quelques copies d'écrans qui illustrent comment écrire un article
+sur le blog depuis le site GitHub. C'est aussi possible en ligne de commande
+bien entendu et ce serait un excellent sujet d'article pour le blog.
 
-Your Jekyll blog will often be viewable immediately at <https://yourgithubusername.github.io> (if it's not, you can often force it to build by completing step 2)
+La première étape est d'aller dans la zone relative aux "Issues"
+le projet GitHub du blog.
 
-![Step 1](/images/step1.gif "Step 1")
+![GitHub issue](/images/github-issue.png)
 
-### Step 2) Customize and view your site
+Ensuite il faut créer une nouvelle "Issue".
 
-Enter your site name, description, avatar and many other options by editing the _config.yml file. You can easily turn on Google Analytics tracking, Disqus commenting and social icons here too.
+![GitHub create issue](/images/github-create-issue.png)
 
-Making a change to _config.yml (or any file in your repository) will force GitHub Pages to rebuild your site with jekyll. Your rebuilt site will be viewable a few seconds later at <https://yourgithubusername.github.io> - if not, give it ten minutes as GitHub suggests and it'll appear soon
+Vous pouvez maintenant décrire votre idée d'article dans la nouvelle "Issue".
 
-> There are 3 different ways that you can make changes to your blog's files:
+![GitHub new issue](/images/github-new-issue.png)
 
-> 1. Edit files within your new username.github.io repository in the browser at GitHub.com (shown below).
-> 2. Use a third party GitHub content editor, like [Prose by Development Seed](http://prose.io). It's optimized for use with Jekyll making markdown editing, writing drafts, and uploading images really easy.
-> 3. Clone down your repository and make updates locally, then push them to your GitHub repository.
+Votre "Issue" est maintenant prête vous pouvez commencer la discussion pour
+son amélioration.
 
-![_config.yml](/images/config.png "_config.yml")
+![GitHub issue](/images/github-issue-2.png)
 
-### Step 3) Publish your first blog post
 
-Edit `/_posts/2014-3-3-Hello-World.md` to publish your first blog post. This [Markdown Cheatsheet](http://www.jekyllnow.com/Markdown-Style-Guide/) might come in handy.
+La discussion de votre "Issue" est terminée et vous allez rassembler
+toutes les notes dans la discussion dans un article de blog. Pour cela,
+la première étape est de créer une copie (un fork) du repo.
 
-![First Post](/images/first-post.png "First Post")
+![GitHub fork](/images/github-fork.png)
 
-> You can add additional posts in the browser on GitHub.com too! Just hit the + icon in `/_posts/` to create new content. Just make sure to include the [front-matter](http://jekyllrb.com/docs/frontmatter/) block at the top of each new blog post and make sure the post's filename is in this format: year-month-day-title.md
 
-## Local Development
+Après quelques secondes, vous avez maintenant un repo GitHub contenant
+une copie de celui du blog. C'est ce repo que vous allez modifier et dans
+lequel vous allez préparer votre article.
 
-1. Install Jekyll and plug-ins in one fell swoop. `gem install github-pages` This mirrors the plug-ins used by GitHub Pages on your local machine including Jekyll, Sass, etc.
-2. Clone down your fork `git clone https://github.com/yourusername/yourusername.github.io.git`
-3. Serve the site and watch for markup/sass changes `jekyll serve`
-4. View your website at http://127.0.0.1:4000/
-5. Commit any changes and push everything to the master branch of your GitHub user repository. GitHub Pages will then rebuild and serve your website.
+![GitHub fork](/images/github-fork-2.png)
 
-## Moar!
+Le repo du blog contient différents répertoires. C'est dans le répertoire
+````_posts```` que vous trouverez les articles du blog en format
+[Markdown](https://guides.github.com/features/mastering-markdown/).
 
-I've created a more detailed walkthrough, [**Build A Blog With Jekyll And GitHub Pages**](http://www.smashingmagazine.com/2014/08/01/build-blog-jekyll-github-pages/) over at the Smashing Magazine website. Check it out if you'd like a more detailed walkthrough and some background on Jekyll. :metal:
+![GitHub repo](/images/github-repo.png)
 
-It covers:
+Vous pouvez cliquer sur le bouton "Create New File" pour créer un nouveau
+fichier dans ce répertoire. La convention de nommage est de commencer par
+la date suivie d'un ou deux mots qui résument le contenu de l'article en
+terminant par l'extension ```.md``` comme le contenu est en Markdown.
 
-- A more detailed walkthrough of setting up your Jekyll blog
-- Common issues that you might encounter while using Jekyll
-- Importing from Wordpress, using your own domain name, and blogging in your favorite editor
-- Theming in Jekyll, with Liquid templating examples
-- A quick look at Jekyll 2.0’s new features, including Sass/Coffeescript support and Collections
+![GitHub create](/images/github-create-file-1.png)
 
-## Jekyll Now Features
+Une fois votre fichier complet, vous pouvez écrire le message de commit
+qui décrit votre modification et créer une branche de façon à pouvoir
+soumettre un pull-request.
 
-✓ Command-line free _fork-first workflow_, using GitHub.com to create, customize and post to your blog  
-✓ Fully responsive and mobile optimized base theme (**[Theme Demo](http://jekyllnow.com)**)  
-✓ Sass/Coffeescript support using Jekyll 2.0  
-✓ Free hosting on your GitHub Pages user site  
-✓ Markdown blogging  
-✓ Syntax highlighting  
-✓ Disqus commenting  
-✓ Google Analytics integration  
-✓ SVG social icons for your footer  
-✓ 3 http requests, including your avatar  
+![GitHub create](/images/github-create-file-2.png)
 
-✘ No installing dependencies
-✘ No need to set up local development  
-✘ No configuring plugins  
-✘ No need to spend time on theming  
-✘ More time to code other things ... wait ✓!  
+Vos modifications sont prêtes dans votre repo, vous devez maintenant les
+soumettre au repo original en cliquant sur "new pull request". Vérifiez
+que votre pull request est bien envoyée vers la branche master du
+repo UCL-INGI/LEPL1503-Blog 
 
-## Questions?
+![GitHub pr](/images/github-create-pr-1.png)
 
-[Open an Issue](https://github.com/barryclark/jekyll-now/issues/new) and let's chat!
+Pensez à ajouter un bref message qui décrit votre article et faites référence
+au numéro de l'"Issue" que vous résolvez.
 
-## Other forkable themes
+![GitHub pr](/images/github-create-pr-2.png)
 
-You can use the [Quick Start](https://github.com/barryclark/jekyll-now#quick-start) workflow with other themes that are set up to be forked too! Here are some of my favorites:
+GitHub va maintenant transférer votre modification vers le repo
+officiel sous la forme d'une pull-request qui pourra être facilement
+intégrée dans le blog afin de publier votre article.
 
-- [Hyde](https://github.com/poole/hyde) by MDO
-- [Lanyon](https://github.com/poole/lanyon) by MDO
-- [mojombo.github.io](https://github.com/mojombo/mojombo.github.io) by Tom Preston-Werner
-- [Left](https://github.com/holman/left) by Zach Holman
-- [Minimal Mistakes](https://github.com/mmistakes/minimal-mistakes) by Michael Rose
-- [Skinny Bones](https://github.com/mmistakes/skinny-bones-jekyll) by Michael Rose
+![GitHub pr received](/images/github-pr-received.png)
 
-## Credits
 
-- [Jekyll](https://github.com/jekyll/jekyll) - Thanks to its creators, contributors and maintainers.
-- [SVG icons](https://github.com/neilorangepeel/Free-Social-Icons) - Thanks, Neil Orange Peel. They're beautiful.
-- [Solarized Light Pygments](https://gist.github.com/edwardhotchkiss/2005058) - Thanks, Edward.
-- [Joel Glovier](http://joelglovier.com/writing/) - Great Jekyll articles. I used Joel's feed.xml in this repository.
-- [David Furnes](https://github.com/dfurnes), [Jon Uy](https://github.com/jonuy), [Luke Patton](https://github.com/lkpttn) - Thanks for the design/code reviews.
-- [Bart Kiers](https://github.com/bkiers), [Florian Simon](https://github.com/vermluh), [Henry Stanley](https://github.com/henryaj), [Hun Jae Lee](https://github.com/hunjaelee), [Javier Cejudo](https://github.com/javiercejudo), [Peter Etelej](https://github.com/etelej), [Ben Abbott](https://github.com/jaminscript), [Ray Nicholus](https://github.com/rnicholus), [Erin Grand](https://github.com/eringrand), [Léo Colombaro](https://github.com/LeoColomb), [Dean Attali](https://github.com/daattali), [Clayton Errington](https://github.com/cjerrington), [Colton Fitzgerald](https://github.com/coltonfitzgerald), [Trace Mayer](https://github.com/sunnankar) - Thanks for your [fantastic contributions](https://github.com/barryclark/jekyll-now/commits/master) to the project!
 
-## Contributing
-
-Issues and Pull Requests are greatly appreciated. If you've never contributed to an open source project before I'm more than happy to walk you through how to create a pull request.
-
-You can start by [opening an issue](https://github.com/barryclark/jekyll-now/issues/new) describing the problem that you're looking to resolve and we'll go from there.
-
-I want to keep Jekyll Now as minimal as possible. Every line of code should be one that's useful to 90% of the people using it. Please bear that in mind when submitting feature requests. If it's not something that most people will use, it probably won't get merged. :guardsman:
